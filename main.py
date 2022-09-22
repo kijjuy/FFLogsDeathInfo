@@ -1,8 +1,6 @@
-from operator import truediv
-import re
+
 import requests
 import json
-import numpy
 
 def getFightInfo(reportId):
     url = "https://www.fflogs.com:443/v1/report/fights/" + reportId + "?api_key=7dfd1f689da2f2091929c85a01ac4e47"
@@ -21,9 +19,9 @@ def addDeathsToPlayerList(deathsList):
         try:
             if(playerArr["targetID"]):
                 if(playerArr["targetID"]["killingAbility"]):
-                    playerArr["targetID"]["killingAbility"] += 1
+                    playerArr["targetID"]["killingAbility"] += 1 # add 1 deaths to killingAbility type
                 else:
-                    playerArr["targetID"].append(death["killingAbility"])
+                    playerArr["targetID"].append(death["killingAbility"]) # user did not have killingAbility registered, add ability and set number of deaths to one
             
 
 def main():
