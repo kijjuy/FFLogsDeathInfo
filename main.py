@@ -1,4 +1,3 @@
-
 import requests
 import json
 
@@ -21,7 +20,14 @@ def addDeathsToPlayerList(deathsList):
                 if(playerArr["targetID"]["killingAbility"]):
                     playerArr["targetID"]["killingAbility"] += 1 # add 1 deaths to killingAbility type
                 else:
-                    playerArr["targetID"].append(death["killingAbility"]) # user did not have killingAbility registered, add ability and set number of deaths to one
+                    playerArr["targetID"].append(death["killingAbility"], 1) # user did not have killingAbility registered, add ability and set number of deaths to one
+            else:
+                playerArr.append(Player(death["targetID"]))
+                playerArr["targetID"].append(death["killingAbility", 1])
+        except:
+            noKillAbil += 1
+                
+            
             
 
 def main():
